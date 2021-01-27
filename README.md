@@ -1,7 +1,7 @@
 # Coding-Challenge-Genesys
 Genesys_Project is the most recent version, it implements testng and the page object model
 
-DockerSelTest is the closest I came to completing this challenge.
+DockerSelTest is an older version that uses docker, I plan on combining the two projects.
 In order to run it you need to enter the following in console:
 docker pull selenium/standalone-chrome:87.0-20210106
 Once that has completed you need to enter:
