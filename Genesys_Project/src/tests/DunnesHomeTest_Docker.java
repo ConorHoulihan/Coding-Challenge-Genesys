@@ -1,7 +1,12 @@
 package tests;
 
+import java.net.MalformedURLException;
+import java.net.URL;
+
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.chrome.ChromeOptions;
+import org.openqa.selenium.remote.RemoteWebDriver;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.BeforeTest;
@@ -9,10 +14,11 @@ import org.testng.annotations.Test;
 
 import pages.DunnesHomePage;
 
-public class DunnesHomeTest {
+public class DunnesHomeTest_Docker {
 	
 	public WebDriver driver;
 	private String Start_URL = "https://www.dunnesstores.com/";
+	private String Host_URL = "http://localhost:4444";
 	DunnesHomePage homePage;
 
 	@BeforeTest
@@ -23,10 +29,18 @@ public class DunnesHomeTest {
 		System.setProperty("webdriver.chrome.driver", "chromedriver_win32/chromedriver.exe");
 	}
 	@BeforeMethod
-	public void CommonTestSetup() {
+	public void CommonTestSetup() throws MalformedURLException {
 		System.out.println("BEFORE METHOD: Launching Browser, Checking page is loaded, and accepting cookies");
 		//Launch browser and go to Dunnes web site
-		driver = new ChromeDriver();
+		//driver = new ChromeDriver();
+		
+		
+		ChromeOptions dcap = new ChromeOptions(); 
+        URL gamelan = new URL(Host_URL);
+        driver = new RemoteWebDriver(gamelan, dcap);
+		
+		
+		
 		driver.get(Start_URL);
 		//create instance of home page
 		homePage = new DunnesHomePage(driver);
