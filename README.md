@@ -1,5 +1,5 @@
 # Coding-Challenge-Genesys
-Selenium1 is my initial iteration of the challenge, it runs locally and does not use docker.
+Genesys_Project is the most recent version, it implements testng and the page object model
 
 DockerSelTest is the closest I came to completing this challenge.
 In order to run it you need to enter the following in console:
